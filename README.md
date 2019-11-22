@@ -10,7 +10,7 @@ demand.
 `Inside of each function you will find a brief explanation of its functionality.`
 
 
-## Libc funtions 
+## libc funtions 
 
 ##### String and memory management
 ```bash
@@ -38,6 +38,9 @@ ft_strtrim
 ft_split
 ft_itoa
 ft_strmapi
+```
+##### fd management
+```bash
 ft_putchar_fd
 ft_putstr_fd
 ft_putendl_fd
