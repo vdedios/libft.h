@@ -1,5 +1,5 @@
 # libft.h
-The only C lib you'll ever need in 42, created by yourself
+> **The only C lib you'll ever need in 42, created by yourself**
 
 The aim of this project is to code a C library regrouping usual functions that
 you’ll be allowed to use in all 42 other projects. Some of them are replicas of 
