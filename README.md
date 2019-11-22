@@ -55,8 +55,8 @@ ft_lstiter
 ft_lstmap
 ```
 
-# 👤Autors
+## 👤Autors
 [Victor Dedios](https://github.com/vdedios)
 
-# 📝License
+## 📝License
 [GPLv3.0](https://www.gnu.org/licenses/gpl-3.0.html)
