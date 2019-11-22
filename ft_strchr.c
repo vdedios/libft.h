@@ -6,27 +6,29 @@
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:50:27 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/07 17:08:36 by vde-dios         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:21:23 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-	The strchr() function returns a pointer to the first occurrence of
-	the character c in the string s.
- */
+** The strchr() function returns a pointer to the first occurrence of
+** the character c in the string s.
+*/
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char *p;
+	unsigned const char *p;
+	unsigned char aux;
 
-	p = (char*)s;
+	aux = (unsigned char)c;
+	p = (unsigned const char*)s;
 	while (*p)
 	{
-		if (*p == c)
-			return (p);
+		if (*p == aux)
+			return ((char *)p);
 		p++;
 	}
-	if (!*p)
-		return (p);
+	if (aux == 0 && *p == 0)
+		return ((char *)p);
 	return (0);
 }

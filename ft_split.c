@@ -1,122 +1,89 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/18 12:57:15 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 12:59:33 by vde-dios         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
-   Divide una cadena de caracteres en trozos separadas por
-   un delimitador y la guarda en un array bidimensional
-   1- f1: Buscamos el primer caracter delimitador + cuento longitud + elimino esa palabra. Devuelvo la palabra
- */
+** Allocates (with malloc(3)) and returns an array of
+** strings obtained by splitting s using the character
+** c as a delimiter. The array must be ended by a
+** NULL pointer.
+*/
 
-static	char *ft_first_word(char const *s, char c)
+static size_t		ft_count_words(char const *s, char c)
 {
 	size_t i;
 	size_t j;
-	char *word;
 
-	i = 0;
 	j = 0;
-	while (i < ft_strlen(s))
-	{
-		if (s[i] == c)
-			break;
+	i = 0;
+	if (!*s)
+		return (0);
+	if (*s != c)
 		i++;
-	}
-	if(!(word = (char *)malloc(i * sizeof(char))))
-		return (NULL);
-	while (j < i)
+	while (j < ft_strlen(s) - 1)
 	{
-		word[j] = s[j];
-			j++;
-	}
-	word[j] = '\0';
-	return word;
-}
-
-static char const *ft_remain_str(char const *s, char *word)
-{
-	char *aux;
-	size_t s_len;
-	size_t word_len;
-
-	s_len = ft_strlen(s);
-	word_len = ft_strlen(word);
-	if (!(aux = (char *)malloc(s_len * sizeof(char))))
-		return (NULL);
-	if (word_len == s_len)
-		return (NULL);
-	while (*s == *word)
-	{
-		s++;
-		word++;
-	}
-	while (word_len < s_len)
-	{
-		aux[word_len] = *s++;	
-		word_len++;
-	}
-	aux[word_len] = '\0';
-	return ((char const*)aux);
-}
-
-static size_t	ft_count_words(char const *s, char c)
-{	
-	size_t i;
-
-	i = 0;
-	while (*s)
-	{
-		if (*s == c)
+		if (s[j] == c && s[j + 1] != c)
 			i++;
-		s++;
+		j++;
 	}
-	return i;
+	return (i);
 }
 
-static void	ft_cpy_values(char *matrix, char *word)
+static	char		*ft_get_word(char const *s, char c)
 {
-	while (*word)
-		*matrix++ = *word++;
-	*(matrix + 1) = '\0';
+	size_t	j;
+	size_t	k;
+	char	*word;
+
+	k = 0;
+	j = 0;
+	while (s[j] != c && s[j])
+		j++;
+	if (!(word = (char *)malloc((j + 1) * sizeof(char))))
+		return (NULL);
+	ft_strlcpy(word, s, j + 1);	
+	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+static char		**ft_free_all(char **matrix, size_t i)
 {
-	char *word;
-	char **matrix;
-	size_t i;
-	size_t matrix_size;
-	
+	while (i)
+		free(matrix[i--]);
+	free(matrix);
+	return (0);
+}
+
+char			**ft_split(char const *s, char c)
+{
+	char	**matrix;
+	size_t	i;
+	size_t	matrix_size;;
+
 	i = 0;
-	matrix_size = ft_count_words(s, c);	
-	if (!(matrix =(char **)malloc(matrix_size * sizeof(char*))))
+	if (!s)
+		return (0);
+	matrix_size = ft_count_words(s, c);
+	if (!(matrix = (char **)malloc((matrix_size + 1) * sizeof(char*))))
 		return (NULL);
 	while (i < matrix_size)
 	{
-		word = ft_first_word(s, c);
-		s = ft_remain_str(s, word);
-		if(!(matrix[i] = (char *)malloc(ft_strlen(word) * sizeof(char))))
-			return (NULL);
-		ft_cpy_values(matrix[i], word);
-		printf("	%s\n", matrix[i]);
+		while (*s == c)
+			s++;		
+		if (!(matrix[i] = ft_get_word(s, c)))
+			return (ft_free_all(matrix, i));
+		s += ft_strlen(matrix[i]);
 		i++;
 	}
-	matrix[i] = NULL;
-	return matrix;
+	matrix[i] = 0;
+	return (matrix);
 }
-
-//Arreglar y no incluir delimitador en la matrix
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

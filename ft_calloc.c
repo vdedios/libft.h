@@ -1,26 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/18 12:34:26 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 12:41:54 by vde-dios         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
-   diferencias con malloc
-   - inicializa memoria a NULL
-   - en lugar de reservar la memoria en un solo bloque, hace una reserva contigua para un array, bloque por bloque
-
-Hay que hacer la reserva con malloc del tirón porque si intentamos
-hacer la reserva por bloque de memoria, malloc no nos la va a asignar
-de forma contigua 
+** Differences with  malloc
+** - memory intialization to NULL
+** - memory allocation is done in a format of count
+** blocks of size size
+**
+** Memory allocation must be done with malloc at once
+** since if we try to do it in separate times, malloc
+** allocate adjacent memory
 */
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *array;
-	size_t i;
+	void	*array;
 
-	i = 0;
-	if (count == 0 || size == 0)
-		return (NULL);
-	if(!(array = (char *)malloc(size * count)))
+	if (!(array = (char *)malloc(size * count)))
 		return (0);
 	ft_memset(array, 0, size * count);
-	i++;
 	return (array);
 }

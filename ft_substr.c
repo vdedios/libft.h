@@ -1,26 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/18 12:42:24 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 12:45:31 by vde-dios         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*
-Reserva memoria (con malloc(3)) para la cadena de
-caracteres que va a devolver, y que proviene de la
-cadena pasada como argumento.
-Esta nueva cadena comienza en el índice ’start’ y
-tiene como tamaño máximo ’len’. Start es el índice
-de la posición de la cadena s desde el que se comienza a copiar
-*/
+ ** Allocates (with malloc(3)) and returns a substring
+ ** from the string given in argument.
+ ** The substring begins at index ’start’ and is of
+ ** maximum size ’len’.
+ */
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *ret;
-	unsigned int i;
-	unsigned int j;
+	char		*ret;
+	unsigned int	j;
 
 	j = 0;
-	i = start;
-	if (!(ret = malloc (len * sizeof(char))))
-		return NULL;
-	while (j < len && s[i])
-		ret[j++] = s[i++];
+	if (!s)
+		return (0);
+	if (!(ret = malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	if (start < ft_strlen(s))
+	{
+		while (j < len && s[start])
+			ret[j++] = s[start++];
+	}
 	ret[j] = '\0';
-	return 	(ret);
+	return (ret);
 }

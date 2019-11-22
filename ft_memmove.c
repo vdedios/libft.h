@@ -6,45 +6,51 @@
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 09:25:27 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/07 10:39:56 by vde-dios         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:10:04 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
 /*
-   The memmove() function copies n bytes from memory area src to memory
-   area dest.  The memory areas may overlap: copying takes place as
-   though the bytes in src are first copied into a temporary array that
-   does not overlap src or dest, and the bytes are then copied from the
-   temporary array to dest.
-   */
+** The memmove() function copies n bytes from memory area src to memory
+** area dest.  The memory areas may overlap: copying takes place as
+** though the bytes in src are first copied into a temporary array that
+** does not overlap src or dest, and the bytes are then copied from the
+** temporary array to dest.
+*/
+
+#include "libft.h"
+
+static void	ft_overlap(size_t len, int i, unsigned char *str_dst, unsigned const char *str_src)
+{
+	i = (int)(len - 1);
+	while (i >= 0)
+	{
+		str_dst[i] = str_src[i];
+		i--;
+	}
+}
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	const char *str_src;
-	char *str_dst;
-	size_t i;
+	unsigned const char	*str_src;
+	unsigned char		*str_dst;
+	int			i;
 
-	str_dst = dst;
-	str_src = src;
-	if(str_src < str_dst)
-	{
-		i = len;
-		while (i > 0)
-		{
-			str_dst[i] = str_src[i];	
-			i--;
-		}
-	}
+	i = 0;
+	str_dst = (unsigned char *)dst;
+	str_src = (unsigned const char *)src;
+	if (dst == NULL && src == NULL)
+		return (0);
+	if (str_src < str_dst)
+		ft_overlap(len, i, str_dst, str_src);
 	else
 	{
 		i = 0;
-		while (i < len)
+		while (i < (int)len)
 		{
-			str_dst[i] = str_src[i];	
+			str_dst[i] = str_src[i];
 			i++;
 		}
 	}
-	return dst;
+	return (dst);
 }

@@ -6,34 +6,34 @@
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:01:18 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/07 17:21:59 by vde-dios         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:01:16 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-	The strchr() function returns a pointer to the last occurrence of
-	the character c in the string s.
- */
+** The strchr() function returns a pointer to the last occurrence of
+** the character c in the string s.
+*/
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *p;
-	int i;
-	int j;
+	int	j;
+	int 	i;
 
-	p = (char*)s;
 	i = 0;
 	j = 0;
-	while (p[i])
+	while (*s)
 	{
-		if (p[i] != c)
+		if (*s != c)
 			j++;
 		else
 			j = 0;
 		i++;
+		s++;
 	}
-	i--;
-	if (i != j)
-		return (&p[i - j]);
-	return (0);
+	if (c == '\0')
+		return ((char *)s);
+	if (j == i)
+		return (0);
+	return ((char *)(s - j- 1));
 }

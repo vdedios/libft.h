@@ -6,11 +6,11 @@
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:40:10 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/07 13:59:06 by vde-dios         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:13:09 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -19,5 +19,5 @@ size_t	ft_strlen(const char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	return i;
+	return (i);
 }

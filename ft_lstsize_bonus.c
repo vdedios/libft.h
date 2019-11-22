@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:20:44 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/19 16:11:53 by vde-dios         ###   ########.fr       */
+/*   Created: 2019/11/18 13:28:05 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 13:29:23 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** The memcpy() function copies n bytes from memory area src to memory
-** area dest. The memory areas must not overlap. Use memmove(3) if the
-** memory areas do overlap.
+** Counts the number of elements int a list.
 */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	char		*str1;
-	const char	*str2;
-	size_t		i;
+	int	len;
 
-	i = 0;
-	str1 = dst;
-	str2 = src;
-	if (dst == NULL && src == NULL)
-		return (0);
-	while (i < n)
+	len = 0;
+	while (lst)
 	{
-		str1[i] = str2[i];
-		i++;
+		lst = lst->next;
+		len++;
 	}
-	return (dst);
+	return (len);
 }

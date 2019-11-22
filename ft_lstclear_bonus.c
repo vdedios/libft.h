@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:02:16 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/18 11:58:48 by vde-dios         ###   ########.fr       */
+/*   Created: 2019/11/18 13:33:16 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 13:48:00 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** The bzero() function writes n zeroed bytes ('\0') to the string s.
-** If n is zero, bzero() does nothing.
-*/
-
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
-{
-	char	*str;
-	size_t	i;
+/*
+** Deletes and frees the given element and every
+** successor of that element, using the function del
+** and free(3)
+** Finally, the pointer to the list must be set to
+** NULL.
+*/
 
-	str = s;
-	i = 0;
-	while (i < n)
-		str[i++] = 0;
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*aux;
+
+	if (lst)
+	{
+		while (*lst)
+		{
+			aux = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = aux;
+		}
+	*lst = NULL;
+	}
 }

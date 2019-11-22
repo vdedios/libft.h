@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:20:44 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/19 16:11:53 by vde-dios         ###   ########.fr       */
+/*   Created: 2019/11/18 13:11:49 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 13:14:12 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** The memcpy() function copies n bytes from memory area src to memory
-** area dest. The memory areas must not overlap. Use memmove(3) if the
-** memory areas do overlap.
-*/
-
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void		ft_putnbr_fd(int n, int fd)
 {
-	char		*str1;
-	const char	*str2;
-	size_t		i;
+	unsigned int aux;
 
-	i = 0;
-	str1 = dst;
-	str2 = src;
-	if (dst == NULL && src == NULL)
-		return (0);
-	while (i < n)
+	aux = n;
+	if (n < 0)
 	{
-		str1[i] = str2[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		aux = (unsigned int)(n * -1);
 	}
-	return (dst);
+	if (aux > 9)
+		ft_putnbr_fd(aux / 10, fd); 
+	ft_putchar_fd((char)(aux % 10 + '0'), fd);
 }

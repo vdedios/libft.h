@@ -6,15 +6,15 @@
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:10:54 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/07 14:25:48 by vde-dios         ###   ########.fr       */
+/*   Updated: 2019/11/18 12:14:04 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return 1;
+		return (1);
 	else if (c >= 'A' && c <= 'Z')
-		return 1;
-	return 0;
+		return (1);
+	return (0);
 }

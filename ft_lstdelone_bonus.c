@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-dios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 14:20:44 by vde-dios          #+#    #+#             */
-/*   Updated: 2019/11/19 16:11:53 by vde-dios         ###   ########.fr       */
+/*   Created: 2019/11/18 13:31:53 by vde-dios          #+#    #+#             */
+/*   Updated: 2019/11/18 13:50:24 by vde-dios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** The memcpy() function copies n bytes from memory area src to memory
-** area dest. The memory areas must not overlap. Use memmove(3) if the
-** memory areas do overlap.
+** Takes as a parameter an element and frees the
+** memory of the element’s content using the function
+** del given as a parameter
+** The memory of next must not be freed under any
+** circumstance.
 */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	char		*str1;
-	const char	*str2;
-	size_t		i;
-
-	i = 0;
-	str1 = dst;
-	str2 = src;
-	if (dst == NULL && src == NULL)
-		return (0);
-	while (i < n)
+	if (lst)
 	{
-		str1[i] = str2[i];
-		i++;
+		del(lst->content);
+		free(lst);
 	}
-	return (dst);
 }
