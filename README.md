@@ -1,5 +1,5 @@
 # libft.h
-> :muscle:**The only C lib you'll ever need in 42, created by yourself**
+> **The only C lib you'll ever need in 42, created by yourself**:muscle:
 
 The aim of this project is to code a C library regrouping usual functions that
 you’ll be allowed to use in all 42 other projects. Some of them are replicas of 
@@ -55,8 +55,8 @@ ft_lstiter
 ft_lstmap
 ```
 
-###  :bust_in_silhouette:Autors
+:bust_in_silhouette:**Autors**
 [Victor Dedios](https://github.com/vdedios)
 
-### :memo:License
+:memo:**License**
 [GPLv3.0](https://www.gnu.org/licenses/gpl-3.0.html)
