@@ -11,7 +11,7 @@ Inside of each function you will find a brief explanation of its functionality.
 
 ## Libc funtions 
 
-**String and memory management**
+##### String and memory management
 ```bash
 memset            memcpy
 memccpy          memmove
@@ -29,7 +29,7 @@ strdup           bzero
 
 ## Aditional functions
 
-**More string management**
+##### More string management
 ```bash
 ft_substr
 ft_strjoin
@@ -42,7 +42,7 @@ ft_putstr_fd
 ft_putendl_fd
 ft_putnbr_fd
 ```
-**Linked lists**
+##### Linked lists
 ```bash
 ft_lstnew
 ft_lstadd_front
@@ -55,8 +55,8 @@ ft_lstiter
 ft_lstmap
 ```
 
-#### 👤Autors
+### 👤Autors
 [Victor Dedios](https://github.com/vdedios)
 
-#### 📝License
+### 📝License
 [GPLv3.0](https://www.gnu.org/licenses/gpl-3.0.html)
