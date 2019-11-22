@@ -7,7 +7,8 @@ original funcitons found in libc, others are new-creation. It will be constantly
 expanded of and revised since it has a living nature. It will grow as future projects
 demand.
 
-`Inside of each function you will find a brief explanation of its functionality.
+`Inside of each function you will find a brief explanation of its functionality.`
+
 
 ## Libc funtions 
 
