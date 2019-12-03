@@ -17,8 +17,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned const char *p;
-	unsigned char aux;
+	unsigned const char	*p;
+	unsigned char		aux;
 
 	aux = (unsigned char)c;
 	p = (unsigned const char*)s;

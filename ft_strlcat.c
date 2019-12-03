@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 ** strlcat() appends string src to the end of dst.
 ** It will append at most dstsize - strlen(dst) - 1
@@ -21,6 +19,8 @@
 ** it means that either dstsize is incorrect or that
 ** dst is not a proper string)
 */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

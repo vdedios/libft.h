@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 ** Allocates (with malloc(3)) and returns an array of
 ** strings obtained by splitting s using the character
 ** c as a delimiter. The array must be ended by a
 ** NULL pointer.
 */
+
+#include "libft.h"
 
 static size_t		ft_count_words(char const *s, char c)
 {

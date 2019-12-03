@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
 ** convert a char to int with the following format:
 ** isspace(as many as you want) + one sign + numbers
 ** anything else it returns a 0
 */
+
+#include "libft.h"
 
 static void	ft_iterate(const char *nptr, long double *num)
 {
@@ -27,10 +27,10 @@ static void	ft_iterate(const char *nptr, long double *num)
 	}
 }
 
-int	ft_atoi(const char *nptr)
+int		ft_atoi(const char *nptr)
 {
-	long double num;
-	int sign;
+	long double	num;
+	int		sign;
 
 	sign = 0;
 	num = 0;

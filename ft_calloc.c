@@ -10,18 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /*
-** Differences with  malloc
+** Allocates memory with  malloc like this:
 ** - memory intialization to NULL
 ** - memory allocation is done in a format of count
 ** blocks of size size
 **
-** Memory allocation must be done with malloc at once
-** since if we try to do it in separate times, malloc
-** allocate adjacent memory
 */
+
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
