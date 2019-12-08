@@ -25,7 +25,6 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*array;
 
 	if (!(array = (char *)malloc(size * count)))
-		return (0);
-	ft_memset(array, 0, size * count);
-	return (array);
+		return (NULL);
+	return (ft_memset(array, 0, size * count));
 }

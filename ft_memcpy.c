@@ -25,14 +25,14 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t		i;
 
 	i = 0;
-	str1 = dst;
-	str2 = src;
-	if (dst == NULL && src == NULL)
+	str1 = (char *)dst;
+	str2 = (const char *)src;
+	if (!dst && !src)
 		return (0);
 	while (i < n)
 	{
 		str1[i] = str2[i];
 		i++;
 	}
-	return (dst);
+	return (str1);
 }

@@ -28,6 +28,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	aux = (unsigned char)c;
 	str1 = (unsigned char *)dst;
 	str2 = (unsigned const char *)src;
+	if (!dst && !src)
+		return (NULL);
 	while (i < n && str2[i] != aux)
 	{
 		str1[i] = str2[i];

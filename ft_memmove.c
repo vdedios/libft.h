@@ -39,8 +39,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	str_dst = (unsigned char *)dst;
 	str_src = (unsigned const char *)src;
-	if (dst == NULL && src == NULL)
-		return (0);
+	if (!dst && !src)
+		return (NULL);
 	if (str_src < str_dst)
 		ft_overlap(len, i, str_dst, str_src);
 	else
